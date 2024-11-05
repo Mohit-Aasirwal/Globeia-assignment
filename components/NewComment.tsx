@@ -1,7 +1,17 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import Filled from "./common/button/Filled";
 
-const NewComment = ({ value, onChange, onAddComment }) => {
+interface NewCommentProps {
+  value: string;
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  onAddComment: () => void;
+}
+
+const NewComment: React.FC<NewCommentProps> = ({
+  value,
+  onChange,
+  onAddComment,
+}) => {
   return (
     <section className="flex flex-col w-full space-y-4">
       <h2 className="text-xl font-bold">Write a comment</h2>

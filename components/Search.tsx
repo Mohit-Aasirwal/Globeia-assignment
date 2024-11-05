@@ -21,7 +21,7 @@ const Search = ({
     return matchesTitle && matchesCategory;
   });
 
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = (category: string) => {
     const newCategories = new Set(selectedCategories);
     if (newCategories.has(category)) {
       newCategories.delete(category);

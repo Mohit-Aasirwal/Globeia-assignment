@@ -1,6 +1,21 @@
 import React from "react";
 
-const Comments = ({ comments, onDeleteComment, currentUserId }) => {
+interface Comment {
+  userId: string;
+  body: string;
+}
+
+interface CommentsProps {
+  comments: Comment[];
+  onDeleteComment: (userId: string) => void;
+  currentUserId: string;
+}
+
+const Comments: React.FC<CommentsProps> = ({
+  comments,
+  onDeleteComment,
+  currentUserId,
+}) => {
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-bold">Comments</h2>
