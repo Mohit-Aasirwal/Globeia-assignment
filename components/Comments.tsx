@@ -1,9 +1,5 @@
 import React from "react";
-
-interface Comment {
-  userId: string;
-  body: string;
-}
+import { Comment } from "@/types";
 
 interface CommentsProps {
   comments: Comment[];
@@ -25,7 +21,7 @@ const Comments: React.FC<CommentsProps> = ({
             <p>{comment.body}</p>
             {comment.userId === currentUserId && (
               <button
-                onClick={() => onDeleteComment(comment.userId)}
+                onClick={() => onDeleteComment(comment?.userId as string)}
                 className="text-red-500 hover:underline"
               >
                 Delete
