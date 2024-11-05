@@ -5,9 +5,18 @@ import { BsArrowUp, BsChatDots } from "react-icons/bs";
 import { FaQuoteRight } from "react-icons/fa";
 import Image from "next/image";
 import { CiFacebook, CiInstagram, CiTwitter } from "react-icons/ci";
-import { BiArrowBack } from "react-icons/bi";
 
-const BlogContent = ({ title = "No title", body, author, comments }) => {
+interface BlogContentProps {
+  title?: string;
+  body: string;
+  author: string;
+}
+
+const BlogContent: React.FC<BlogContentProps> = ({
+  title = "No title",
+  body,
+  author,
+}) => {
   return (
     <section className="flex flex-col space-y-4">
       <h1 className="font-bold text-5xl">{title}</h1>
@@ -17,7 +26,7 @@ const BlogContent = ({ title = "No title", body, author, comments }) => {
             width={1000}
             height={1000}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyzTWQoCUbRNdiyorem5Qp1zYYhpliR9q0Bw&s"
-            alt=""
+            alt="Author Avatar"
             className="h-10 w-10 rounded-full"
           />
           <p className="text-base">{author}</p>
@@ -35,7 +44,7 @@ const BlogContent = ({ title = "No title", body, author, comments }) => {
         width={1000}
         height={1000}
         src="https://static.vecteezy.com/system/resources/thumbnails/020/933/072/small_2x/abstract-blur-gradient-background-vector.jpg"
-        alt=""
+        alt="Blog Image"
         className="w-full rounded-lg object-cover md:h-96"
       />
       <h2 className="font-bold md:text-xl">
@@ -46,7 +55,7 @@ const BlogContent = ({ title = "No title", body, author, comments }) => {
         {body}{" "}
         <span className="font-bold text-xl">
           <BsArrowUp />
-          This is the body obtained from the api
+          This is the body obtained from the API
         </span>
         <br />
         <br />
@@ -68,7 +77,7 @@ const BlogContent = ({ title = "No title", body, author, comments }) => {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, expedita
           rerum eveniet consectetur magni quisquam cum adipisci necessitatibus
           mollitia laboriosam enim quas hic explicabo quidem provident harum
-          dolorem unde minima pariatur
+          dolorem unde minima pariatur.
         </span>
       </div>
       <h2 className="text-xl font-bold">
@@ -80,7 +89,8 @@ const BlogContent = ({ title = "No title", body, author, comments }) => {
         numquam eaque porro, eius tempore ducimus aspernatur ad architecto ea.
         Atque neque ipsam dicta itaque, facere ad beatae ducimus nihil labore
         dolor repudiandae ipsa. Ullam necessitatibus amet recusandae tenetur
-        consequuntur. <br />
+        consequuntur.
+        <br />
         <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
         officia, inventore ut consequatur vel mollitia, repellat nobis
         repellendus quibusdam corporis nihil quia numquam facilis quod placeat!
@@ -95,19 +105,17 @@ const BlogContent = ({ title = "No title", body, author, comments }) => {
         quidem provident harum.
       </p>
       <div className="grid gap-5 md:grid-cols-2">
-        {[1, 2, 3, 4].map((value, id) => {
-          return (
-            <div className="h-60 w-full rounded-md" key={id}>
-              <Image
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLamBZ3O9wE4QhMbgZvyj7ztu42bxSlffdaA&s"
-                alt=""
-                width={1000}
-                height={1000}
-                className="h-full w-full rounded-md object-cover"
-              />
-            </div>
-          );
-        })}
+        {[1, 2, 3, 4].map((value, id) => (
+          <div className="h-60 w-full rounded-md" key={id}>
+            <Image
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLamBZ3O9wE4QhMbgZvyj7ztu42bxSlffdaA&s"
+              alt="Gallery image"
+              width={1000}
+              height={1000}
+              className="h-full w-full rounded-md object-cover"
+            />
+          </div>
+        ))}
       </div>
       <div className="flex w-fit flex-row flex-wrap items-center justify-center space-x-4 space-y-4 text-nowrap md:flex-nowrap md:space-y-0">
         <p>Share this post:</p>
