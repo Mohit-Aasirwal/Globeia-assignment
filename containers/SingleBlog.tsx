@@ -10,7 +10,6 @@ import { generateUniqueId } from "@/constants/generateUniqueId";
 import React, { useEffect, useState } from "react";
 import { Comment } from "@/types";
 
-// Define the Post and Comment types
 interface Post {
   id: number;
   title: string;
@@ -86,7 +85,9 @@ const SingleBlog: React.FC = () => {
   };
 
   const handleDeleteComment = (userId: string) => {
-    setComments(comments.filter((comment) => comment.userId !== userId));
+    setComments(
+      comments.filter((comment) => comment.id?.toString() !== userId)
+    );
   };
 
   return (
